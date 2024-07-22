@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="icon" href="C:\Users\jndimande\OneDrive - Rietondale High School\Desktop\HTML\icon.ico" type="icon.ico">
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: black;
+        }
+        .left {
+            background-color: red;
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+        .right {
+            background-color: aqua;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            overflow: auto;
+        }
+        .content {
+            width: 80%;
+            max-width: 400px;
+        }
+        h1, h2 {
+            margin-bottom: 20px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            background-color: black;
+            color: white;
+            cursor: pointer;
+        }
+        button a {
+            color: white;
+            text-decoration: none;
+        }
+        button:hover {
+            background-color: grey;
+        }
+        label {
+            display: block;
+            margin: 10px 0;
+        }
+        .ball {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            animation: pop 5s forwards;
+        }
+        @keyframes pop {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+        #scrollToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="left">
+        <div class="content">
+            <h1>Welcome</h1>
+            <img src="vv.png" alt="Welcome Image">
+            <input type="text" placeholder="Username" name="Username" required>
+            <input type="password" placeholder="Password" name="Password" required>
+            <label><input type="checkbox"> Remember me on this device</label>
+            <button><a href="feed.html">Login</a></button>
+            <button><a href="Sign up.html">Don't have an account?</a></button>
+            <button><a href="About us.html">About us</a></button>
+        </div>
+    </div>
+    <div class="right" id="venteeInfo">
+        <div class="content">
+            <h2>What is Ventee Ventee?</h2>
+            <p>Ventee Ventee is a service that provides users with anonymity and a chance to vent with each other through texting. Users can decide if they want to vent or be the one to whom others vent, all while earning money. You can earn rewards and badges that showcase how good of a listener you are and how well you can give advice. For safety, adults talk to adults and teenagers to teenagers. Sensitive information is required for extra safety measures.</p>
+            <p>At SwiftTech Solutions, we prioritize your mental health. The app allows you to go live solo or with other strangers, and we monitor lives for potential threats. Any suspicious activity will lead to a ban. Users can also report suspicious behavior.</p>
+            <p>You could be talking to a celebrity and you wouldn't know it. Head over to the left side of the screen, now!</p>
+            <button id="scrollButton">Back to Top</button>
+            <button id="popBallButton">Pop Ball</button>
+        </div>
+    </div>
+    <script>
+        document.getElementById('scrollButton').onclick = function() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        };
+
+        document.getElementById('popBallButton').onclick = function() {
+            const ball = document.createElement('div');
+            ball.className = 'ball';
+            ball.style.top = Math.random() * window.innerHeight + 'px';
+            ball.style.left = Math.random() * window.innerWidth + 'px';
+            ball.innerText = String.fromCharCode(65 + Math.floor(Math.random() * 26)) + Math.floor(Math.random() * 10);
+            document.body.appendChild(ball);
+            setTimeout(() => ball.remove(), 5000);
+        };
+    </script>
+</body>
+</html>
+
+

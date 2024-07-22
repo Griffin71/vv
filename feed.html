@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ventor Ventee Feed</title>
+    <link rel="icon" href="C:\Users\jndimande\OneDrive - Rietondale High School\Desktop\HTML\icon.ico" type="icon.ico">
+    <style>
+        body, html {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: "Times New Roman", serif;
+            background-color: #f0f0f0;
+            color: black;
+        }
+        header {
+            background-color: #ffffff;
+            padding: 10px;
+            text-align: left;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        header img {
+            max-height: 40px;
+        }
+        .header-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .header-buttons button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border-radius: 5px;
+        }
+        .header-buttons button:hover {
+            background-color: #0056b3;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: calc(100vh - 60px);
+            text-align: center;
+            padding: 80px 20px 20px 20px;
+        }
+        .feed {
+            background-color: white;
+            padding: 20px;
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        .create-options {
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .create-options button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border-radius: 5px;
+        }
+        .create-options button:hover {
+            background-color: #218838;
+        }
+        .settings-bar {
+            position: fixed;
+            left: 0;
+            top: 60px;
+            width: 200px;
+            height: calc(100vh - 60px);
+            background-color: #333;
+            color: white;
+            display: none;
+            flex-direction: column;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            z-index: 999;
+        }
+        .settings-bar button {
+            background-color: #444;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .settings-bar button:hover {
+            background-color: #555;
+        }
+        .toggle-settings {
+            position: fixed;
+            left: 10px;
+            top: 70px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+        .toggle-settings:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header class="MyClass">
+        <a href="feed.html"><img src="icon.ico" alt="Home"></a>
+        <div class="header-buttons">
+            <button onclick="showCreateOptions()">+</button>
+            <div class="create-options" id="createOptions">
+                <button onclick="alert('Create a new post')">Create a new post</button>
+                <button onclick="alert('Write a new post')">Write a new post</button>
+                <button onclick="alert('Upload photos')">Upload photos</button>
+                <button onclick="alert('Go live')">Go live</button>
+            </div>
+            <button onclick="location.href='Messages.html'">Messages</button>
+            <button onclick="location.href='Videos.html'">Videos/Reels</button>
+            <button onclick="location.href='Notifications.html'">Notifications</button>
+            <button onclick="location.href='Profile.html'"><img src="icon.ico" alt="Profile" style="max-height: 12px; border-radius: 15%;"></button>
+        </div>
+    </header>
+
+    <div class="settings-bar" id="settingsBar">
+	<br>
+	<br>
+	<br>
+        <button onclick="alert('Go Premium')">Go Premium</button>
+        <button onclick="toggleTheme()">Change Theme to Dark Mode</button>
+        <button onclick="alert('Settings')">Settings</button>
+        <button onclick="location.href='box.html'">Suggestions & Improvements</button>
+        <button onclick="location.href='About us.html'">About Us</button>
+        <button onclick="location.href='Sign up.html'">Log Out</button>
+    </div>
+    <button class="toggle-settings" onclick="toggleSettingsBar()">Settings</button>
+    <div class="container">
+        <div class="feed">
+            <h1>Welcome to Ventor Ventee</h1>
+            <p>This is your feed page where you can see all the latest updates from your friends and community.</p>
+        </div>
+        <!-- Add more feed items here -->
+    </div>
+    <script>
+        function showCreateOptions() {
+            var createOptions = document.getElementById("createOptions");
+            if (createOptions.style.display === "none" || createOptions.style.display === "") {
+                createOptions.style.display = "flex";
+            } else {
+                createOptions.style.display = "none";
+            }
+        }
+
+        function toggleSettingsBar() {
+            var settingsBar = document.getElementById("settingsBar");
+            if (settingsBar.style.display === "none" || settingsBar.style.display === "") {
+                settingsBar.style.display = "flex";
+            } else {
+                settingsBar.style.display = "none";
+            }
+        }
+
+        function toggleTheme() {
+            if (document.body.style.backgroundColor === "black") {
+                document.body.style.backgroundColor = "#f0f0f0";
+                document.body.style.color = "black";
+            } else {
+                document.body.style.backgroundColor = "black";
+                document.body.style.color = "white";
+            }
+        }
+    </script>
+</body>
+</html>
